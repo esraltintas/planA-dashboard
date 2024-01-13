@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { Product, Statistic } from "../../types";
 import * as dashboardProxy from "../../proxy/dashboardProxy";
+import { dashboardDescription } from "../../utils/constants";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -43,6 +44,7 @@ const Dashboard: React.FC = () => {
 
   const ghgOptions = useMemo(() => {
     const uniqueGHGs = [...new Set(data.map((product) => product.name))];
+
     return uniqueGHGs.map((ghg) => ({ value: ghg, label: ghg }));
   }, [data]);
 
@@ -72,11 +74,13 @@ const Dashboard: React.FC = () => {
         minDate={startDate}
       />
 
+      <p>{dashboardDescription}</p>
+
       {selectedGHG && <Chart chartData={chartData} />}
       {selectedGHG &&
         data
           .filter((product) => product.name === selectedGHG)
-          .map((product: any) => (
+          .map((product: Product) => (
             <DashboardCard
               key={product.name}
               title={product.name}
