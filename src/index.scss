@@ -3,7 +3,11 @@
   line-height: 1.5;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #333;
+  background: linear-gradient(
+    0deg,
+    rgba(11, 145, 68, 1) 0%,
+    rgba(0, 42, 22, 1) 100%
+  );
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

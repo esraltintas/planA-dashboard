@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./app.scss";
 import Header from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
+import Home from "./pages/Home";
 
 /* const Description = `Plan A helps companies monitor, reduce, and offset their carbon footprint,
   based on the data they input about their emissions. Though this gives individual companies visibility
@@ -19,12 +20,8 @@ const App = (): JSX.Element => {
           <Routes>
             <Route path="/" />
           </Routes>
-          <h1>
-            <a href="https://plana.earth/" target="_blank">
-              There is no Plan B
-            </a>
-          </h1>
         </div>
+        <Home />
         <Footer />
       </BrowserRouter>
     </div>
