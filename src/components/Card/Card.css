@@ -1,0 +1,25 @@
+.dashboard-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.card-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    font-size: 0.875rem;
+}
+
+.card-title:focus,
+.card-description:focus {
+    outline: 2px solid #007BFF;
+}

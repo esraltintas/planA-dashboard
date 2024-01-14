@@ -8,6 +8,16 @@ own emissions, it doesn't give us a clear idea on our progress on a country leve
 This task addresses the other side of the problem; using satellite data to estimate the
 amount of GHG emissions in the atmosphere over time to measure our actual impact.
 
+## Getting Started
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/esraltintas/planA-dashboard.git
+   ```
+
+2. Run the test suite:
+
 ## Install
 
 It's recommended to install `yarn`:
@@ -28,47 +38,34 @@ To run the application, use `yarn install`
 
 ### `yarn lint`
 
-## Task
+Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
 
-Your task is to create a single page dashboard that shows the density of a given GHG for Germany over a predefined date range, with the following requirements:
+## Header
 
-The user should be able to select the GHG type (hint: also referred to as product). Please use this API to source the GHG type data: https://api.v2.emissions-api.org/ui/
+The header of the amount of GHG emissions application may include the PlanA logo
 
-> e.g. https://api.v2.emissions-api.org/api/v2/carbonmonoxide/average.json?country=DE&begin=2019-02-01&end=2022-06-15
+## Product Dashboard Card
 
-Additionally, the following information should be displayed on the page
+Before initiating the procurement process, users come across the "Dashboard Product Card." This card offers a snapshot of available products, presenting essential details such as:
 
-- Plan A logo (`/src/assets/images`)
-- The provided description (`src/App.tsx`)
-- Country (Germany)
-- The start (2019-02-01) and end date (today)
-- A chart (using the Recharts library; installed)
+- Title
+- Description
 
-## What we’re looking for
+## Project Features
 
-### UX/layout
+### Select GHG Type
 
-- Feel free to use any CSS preprocessors, scss is installed
-- CSS organisation and best practices
-- Responsiveness
-- Accessibility (WCAG or BITV)
+The project provides users with the flexibility to choose the type of Greenhouse Gas (GHG) data they want to explore. Whether it's carbon dioxide, methane, or any other GHG type, users can easily customize their data view.
 
-### General software development best practice
+### Date Range Selection
 
-- Architecture
-- Coding style
-- Scalability
-- Readability
-- Testing your code
+To cater to diverse analysis needs, the project includes a user-friendly date range selection feature. Users can specify a start date and end date, allowing them to focus on a particular timeframe for a more targeted and insightful analysis.
 
-### Testing
+### Interactive Charts
 
-- Include **at least 1 test** for the GHG type parameter selection
+Visualizing environmental data is made easy with the interactive charting feature. The project utilizes Recharts library to create dynamic and informative charts. Users can observe trends, compare data, and gain valuable insights into GHG densities over time.
 
-## Output
-
-- Please create a private GitHub repository with your solution and share it with the Github users provided by our recruitment team.
-- Please replace this README with instructions on how to run your code locally
+To leverage these features effectively, refer to the documentation or user guide for detailed instructions on how to make the most out of the GHG type selection, date range selection, and charting capabilities.
 
 ## Libraries
 

@@ -1,0 +1,12 @@
+.dashboard-desc {
+    padding: 1.25rem;
+}
+
+.dashboard-selectors {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

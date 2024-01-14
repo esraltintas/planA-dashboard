@@ -1,26 +1,23 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  color: #fff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms ease 0s;
+.home-wrapper {
+  display: flex;
+  flex-direction: row;
+}
 
-  &:hover,
-  &:focus {
-    filter: drop-shadow(0 0 2em #646cffaa);
+.filter-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+
+  label {
+    padding: 10px;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
