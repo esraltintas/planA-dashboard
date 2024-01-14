@@ -1,8 +1,7 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { DateRangeSelectorProps } from "../../types";
-
+import { DateRangeSelectorProps } from "../types";
 const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({
   startDate,
   endDate,
@@ -10,9 +9,10 @@ const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({
   onEndDateChange,
 }) => {
   return (
-    <div>
+    <div className="filter-wrapper">
       <label>Start Date:</label>
       <DatePicker
+        placeholderText="Select a date"
         selected={startDate}
         onChange={(date) => onStartDateChange(date)}
         selectsStart
@@ -21,6 +21,7 @@ const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({
       />
       <label>End Date:</label>
       <DatePicker
+        placeholderText="Select a date"
         selected={endDate}
         onChange={(date) => onEndDateChange(date)}
         selectsEnd

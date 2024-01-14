@@ -35,7 +35,7 @@ export interface GHGSelectorProps {
   onChange: (selectedGHG: string) => void;
 }
 
-export interface DashboardCardProps {
+export interface CardProps {
   title: string;
   description: string;
   imageUrl?: string;

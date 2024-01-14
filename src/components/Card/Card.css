@@ -18,3 +18,8 @@
 .card-description {
     font-size: 0.875rem;
 }
+
+.card-title:focus,
+.card-description:focus {
+    outline: 2px solid #007BFF;
+}

@@ -5,17 +5,17 @@ import { dashboardDescription } from "../../utils/constants";
 
 import GHGSelector from "../GHGSelector/GHGSelector";
 import Chart from "../Chart/Chart";
-import DashboardCard from "../DashboardCard/DashboardCard";
+import Card from "../Card/Card";
 
 import "./Dashboard.css";
-import DateRangeSelector from "../DateRange/DateRangeSelector";
+import DateRangeSelector from "../DateRangeSelector";
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<Product[]>([]);
   const [chartData, setChartData] = useState<Statistic[]>([]);
   const [selectedGHG, setSelectedGHG] = useState<string>("");
   const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(new Date());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,11 +25,11 @@ const Dashboard: React.FC = () => {
         setData(productResponse.data);
 
         if (selectedGHG) {
-          const statisticResponse = await dashboardProxy.productStatisticGet(
+          const statisticResponse = await dashboardProxy.productStatisticGet({
             selectedGHG,
             startDate,
-            endDate
-          );
+            endDate,
+          });
 
           const formattedChartData = statisticResponse.data.map(
             (dataPoint: DataPoint) => {
@@ -64,7 +64,7 @@ const Dashboard: React.FC = () => {
   }, [data]);
 
   return (
-    <div className="dashboard-wrapper">
+    <div className="dashboard-wrapper" role="main" aria-live="polite">
       <p className="dashboard-desc">{dashboardDescription}</p>
 
       <div className="dashboard-selectors">
@@ -87,7 +87,7 @@ const Dashboard: React.FC = () => {
         data
           .filter((product) => product.name === selectedGHG)
           .map((product: Product) => (
-            <DashboardCard
+            <Card
               key={product.name}
               title={product.name}
               description={product.description}

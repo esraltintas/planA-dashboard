@@ -10,7 +10,7 @@ const App = (): JSX.Element => {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <div className="container">
+        <div className="container" data-testid="container">
           <Routes>
             <Route path="/" />
           </Routes>

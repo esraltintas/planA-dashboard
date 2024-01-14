@@ -19,7 +19,7 @@ export const productListGet: any = async () => {
   );
 };
 
-export const productStatisticGet: any = async ({
+export const productStatisticGet = async ({
   selectedGHG,
   startDate,
   endDate,
@@ -33,7 +33,7 @@ export const productStatisticGet: any = async ({
           startDate?.toISOString() || "2019-02-10"
         }&end=${
           endDate?.toISOString() || new Date().toISOString()
-        }&limit=100&offset=0`
+        }&limit=20&offset=0`
       )
       // eslint-disable-next-line @typescript-eslint/typedef
       .then(function (response) {
