@@ -2,15 +2,12 @@ import React from "react";
 import { ChartProps } from "../types";
 import {
   ComposedChart,
-  Line,
   Area,
-  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  Scatter,
   ResponsiveContainer,
 } from "recharts";
 

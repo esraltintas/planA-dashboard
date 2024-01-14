@@ -55,3 +55,10 @@ export interface DataPoint {
     standard_deviation: number;
   };
 }
+
+export interface DateRangeSelectorProps {
+  startDate: Date | null;
+  endDate: Date | null;
+  onStartDateChange: (date: Date | null) => void;
+  onEndDateChange: (date: Date | null) => void;
+}

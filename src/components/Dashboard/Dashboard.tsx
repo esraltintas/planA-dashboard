@@ -3,13 +3,12 @@ import { Product, Statistic, DataPoint } from "../../types";
 import * as dashboardProxy from "../../proxy/dashboardProxy";
 import { dashboardDescription } from "../../utils/constants";
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import GHGSelector from "../GHGSelector";
 import Chart from "../Chart";
 import DashboardCard from "../DashboardCard/DashboardCard";
 
 import "./Dashboard.css";
+import DateRangeSelector from "../DateRangeSelector";
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<Product[]>([]);
@@ -48,8 +47,6 @@ const Dashboard: React.FC = () => {
             }
           );
 
-          console.log(formattedChartData);
-
           setChartData(formattedChartData);
         }
       } catch (error) {
@@ -74,22 +71,11 @@ const Dashboard: React.FC = () => {
         onChange={(selected) => setSelectedGHG(selected)}
       />
 
-      <label>Start Date:</label>
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        selectsStart
+      <DateRangeSelector
         startDate={startDate}
         endDate={endDate}
-      />
-      <label>End Date:</label>
-      <DatePicker
-        selected={endDate}
-        onChange={(date) => setEndDate(date)}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
+        onStartDateChange={(date) => setStartDate(date)}
+        onEndDateChange={(date) => setEndDate(date)}
       />
 
       <p>{dashboardDescription}</p>
