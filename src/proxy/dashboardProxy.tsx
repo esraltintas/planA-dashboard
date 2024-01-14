@@ -1,7 +1,23 @@
 import axios from "axios";
 import { ProductStatisticGetParams } from "../types";
 import { handleApiError } from "../ErrorHandler/ErrorHandler";
-const BASE_URL = "https://api.v2.emissions-api.org/api/v2";
+import { BASE_URL } from "../constants";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getCountries: any = async () => {
+  return (
+    axios
+      .get(`${BASE_URL}/countries.json`)
+      // eslint-disable-next-line @typescript-eslint/typedef
+      .then(function (response) {
+        return response;
+      })
+      // eslint-disable-next-line @typescript-eslint/typedef
+      .catch(function (error) {
+        throw handleApiError(error);
+      })
+  );
+};
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const productListGet: any = async () => {

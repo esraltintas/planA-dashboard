@@ -1,6 +1,6 @@
 import React from "react";
 import { ChartProps } from "../../types";
-import "./Chart.css";
+import "./Chart.scss";
 import {
   ComposedChart,
   Area,

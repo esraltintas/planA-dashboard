@@ -29,10 +29,11 @@ export interface ChartProps {
   chartData: any[];
 }
 
-export interface GHGSelectorProps {
-  selectedGHG: string;
-  ghgOptions: { value: string; label: string }[];
-  onChange: (selectedGHG: string) => void;
+export interface SelectProps<T> {
+  selectedValue: T;
+  options: { value: T; label: string }[];
+  onChange: (value: T) => void;
+  placeholder?: string;
 }
 
 export interface CardProps {
@@ -61,4 +62,12 @@ export interface DateRangeSelectorProps {
   endDate: Date | null;
   onStartDateChange: (date: Date | null) => void;
   onEndDateChange: (date: Date | null) => void;
+}
+
+export interface DashboardData {
+  data: Product[];
+  chartData: Statistic[];
+  countries: string[];
+  ghgOptions: { value: string; label: string }[];
+  countryOptions: { value: string; label: string }[];
 }
