@@ -1,4 +1,21 @@
 .filter-wrapper {
     display: flex;
     flex-direction: row;
+    padding: 1.875rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.dashboard-desc {
+    padding: 1.25rem;
+}
+
+.dashboard-selectors {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }

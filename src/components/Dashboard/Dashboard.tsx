@@ -3,12 +3,12 @@ import { Product, Statistic, DataPoint } from "../../types";
 import * as dashboardProxy from "../../proxy/dashboardProxy";
 import { dashboardDescription } from "../../utils/constants";
 
-import GHGSelector from "../GHGSelector";
-import Chart from "../Chart";
+import GHGSelector from "../GHGSelector/GHGSelector";
+import Chart from "../Chart/Chart";
 import DashboardCard from "../DashboardCard/DashboardCard";
 
 import "./Dashboard.css";
-import DateRangeSelector from "../DateRangeSelector";
+import DateRangeSelector from "../DateRange/DateRangeSelector";
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<Product[]>([]);
@@ -65,20 +65,22 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="dashboard-wrapper">
-      <GHGSelector
-        selectedGHG={selectedGHG}
-        ghgOptions={ghgOptions}
-        onChange={(selected) => setSelectedGHG(selected)}
-      />
+      <p className="dashboard-desc">{dashboardDescription}</p>
 
-      <DateRangeSelector
-        startDate={startDate}
-        endDate={endDate}
-        onStartDateChange={(date) => setStartDate(date)}
-        onEndDateChange={(date) => setEndDate(date)}
-      />
+      <div className="dashboard-selectors">
+        <GHGSelector
+          selectedGHG={selectedGHG}
+          ghgOptions={ghgOptions}
+          onChange={(selected) => setSelectedGHG(selected)}
+        />
 
-      <p>{dashboardDescription}</p>
+        <DateRangeSelector
+          startDate={startDate}
+          endDate={endDate}
+          onStartDateChange={(date) => setStartDate(date)}
+          onEndDateChange={(date) => setEndDate(date)}
+        />
+      </div>
 
       {selectedGHG && <Chart chartData={chartData} />}
       {selectedGHG &&

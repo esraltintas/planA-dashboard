@@ -1,5 +1,5 @@
 import React from "react";
-import { GHGSelectorProps } from "../types";
+import { GHGSelectorProps } from "../../types";
 
 const GHGSelector: React.FC<GHGSelectorProps> = ({
   selectedGHG,

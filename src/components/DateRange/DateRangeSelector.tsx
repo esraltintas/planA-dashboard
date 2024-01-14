@@ -1,7 +1,7 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { DateRangeSelectorProps } from "../types";
+import { DateRangeSelectorProps } from "../../types";
 
 const DateRangeSelector: React.FC<DateRangeSelectorProps> = ({
   startDate,
