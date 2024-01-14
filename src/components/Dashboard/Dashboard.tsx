@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Product, Statistic } from "../../types";
+import { Product, Statistic, DataPoint } from "../../types";
 import * as dashboardProxy from "../../proxy/dashboardProxy";
 import { dashboardDescription } from "../../utils/constants";
 
@@ -32,7 +32,25 @@ const Dashboard: React.FC = () => {
             endDate
           );
 
-          setChartData(statisticResponse.data);
+          const formattedChartData = statisticResponse.data.map(
+            (dataPoint: DataPoint) => {
+              const date = new Date(dataPoint.time.interval_start);
+              const formattedDate = `${date.getFullYear()}-${String(
+                date.getMonth() + 1
+              ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+
+              return {
+                ...dataPoint,
+                time: {
+                  interval_start: formattedDate,
+                },
+              };
+            }
+          );
+
+          console.log(formattedChartData);
+
+          setChartData(formattedChartData);
         }
       } catch (error) {
         console.error("Error fetching data:", error);

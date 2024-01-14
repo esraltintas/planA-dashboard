@@ -40,3 +40,18 @@ export interface DashboardCardProps {
   description: string;
   imageUrl?: string;
 }
+
+export interface DataPoint {
+  time: {
+    interval_start: string;
+    max: string;
+    min: string;
+  };
+  value: {
+    average: number;
+    count: number;
+    max: number;
+    min: number;
+    standard_deviation: number;
+  };
+}
