@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./app.scss";
 import Header from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 
 const App = (): JSX.Element => {
   return (
