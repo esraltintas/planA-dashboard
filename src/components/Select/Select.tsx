@@ -8,8 +8,6 @@ const Select: React.FC<SelectProps<any>> = ({
   onChange,
   placeholder,
 }) => {
-  console.log(selectedValue, options);
-
   if (!options || options.length === 0) {
     return null;
   }
