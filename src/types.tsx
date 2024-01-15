@@ -21,6 +21,7 @@ export interface Statistic {
 
 export interface ProductStatisticGetParams {
   selectedGHG: string;
+  selectedCountry: string;
   startDate: Date | null;
   endDate: Date | null;
 }
@@ -64,10 +65,18 @@ export interface DateRangeSelectorProps {
   onEndDateChange: (date: Date | null) => void;
 }
 
+interface Option {
+  value: string;
+  label: string;
+}
+
 export interface DashboardData {
-  data: Product[];
-  chartData: Statistic[];
-  countries: string[];
-  ghgOptions: { value: string; label: string }[];
-  countryOptions: { value: string; label: string }[];
+  data: {
+    countryOptions: Option[];
+    ghgOptions: Option[];
+    data: Product[];
+    countries: string[];
+    chartData: Statistic[];
+  };
+  loading: boolean;
 }

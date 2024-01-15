@@ -4,6 +4,7 @@ import { Product, DashboardData, DataPoint, Statistic } from "../../types";
 
 const useDashboardData = (
   selectedGHG: string,
+  selectedCountry: string,
   startDate: Date | null,
   endDate: Date | null
 ): DashboardData => {
@@ -18,18 +19,23 @@ const useDashboardData = (
     { value: string; label: string }[]
   >([]);
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+
         const productResponse = await dashboardProxy.productListGet();
         const countriesResponse = await dashboardProxy.getCountries();
 
         setData(productResponse.data);
         setCountries(countriesResponse.data);
 
-        if (selectedGHG) {
+        if (selectedGHG && selectedCountry) {
           const statisticResponse = await dashboardProxy.productStatisticGet({
             selectedGHG,
+            selectedCountry,
             startDate,
             endDate,
           });
@@ -68,15 +74,20 @@ const useDashboardData = (
         );
 
         setCountryOptions(countryOptions);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false);
       }
     };
 
     fetchData();
-  }, [selectedGHG, startDate, endDate, countries]);
+  }, [selectedGHG, selectedCountry, startDate, endDate]);
 
-  return { countryOptions, ghgOptions, data, countries, chartData };
+  return {
+    data: { countryOptions, ghgOptions, data, countries, chartData },
+    loading,
+  };
 };
 
 export default useDashboardData;

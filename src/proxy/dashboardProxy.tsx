@@ -37,15 +37,18 @@ export const productListGet: any = async () => {
 
 export const productStatisticGet = async ({
   selectedGHG,
+  selectedCountry,
   startDate,
   endDate,
 }: ProductStatisticGetParams) => {
+  const countryParam = selectedCountry ? `country=${selectedCountry}` : "DE";
+
   return (
     axios
       .get(
         `${BASE_URL}/${
           selectedGHG?.toLowerCase() || "methane"
-        }/statistics.json?country=DE&interval=day&begin=${
+        }/statistics.json?${countryParam}&interval=day&begin=${
           startDate?.toISOString() || "2019-02-10"
         }&end=${
           endDate?.toISOString() || new Date().toISOString()
