@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useDashboardData from "./useDashboardData";
 import { Product } from "../../types";
 import { dashboardDescription } from "../../utils/constants";
@@ -31,19 +31,23 @@ const Dashboard: React.FC = () => {
       ) : (
         <>
           <div className="dashboard-selectors">
-            <Select
-              selectedValue={selectedGHG}
-              options={data.ghgOptions}
-              onChange={setSelectedGHG}
-              placeholder="Select GHG"
-            />
+            {data.ghgOptions && data.ghgOptions.length > 0 && (
+              <Select
+                selectedValue={selectedGHG}
+                options={data.ghgOptions}
+                onChange={setSelectedGHG}
+                placeholder="Select GHG"
+              />
+            )}
 
-            <Select
-              selectedValue={selectedCountry}
-              options={data.countryOptions}
-              onChange={setSelectedCountry}
-              placeholder="Select Country"
-            />
+            {data.countryOptions && data.countryOptions.length > 0 && (
+              <Select
+                selectedValue={selectedCountry}
+                options={data.countryOptions}
+                onChange={setSelectedCountry}
+                placeholder="Select Country"
+              />
+            )}
 
             <DateRangeSelector
               startDate={startDate}

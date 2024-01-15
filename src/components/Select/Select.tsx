@@ -8,6 +8,10 @@ const Select: React.FC<SelectProps<any>> = ({
   onChange,
   placeholder,
 }) => {
+  if (!options || options.length === 0) {
+    return null;
+  }
+
   return (
     <div className="filter-wrapper">
       <label>Select:</label>
